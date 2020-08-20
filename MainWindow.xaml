@@ -1,0 +1,31 @@
+﻿<Window x:Class="Transformations.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="SharpGL WPF Application" Height="600" Width="800" 
+        xmlns:sharpGL="clr-namespace:SharpGL.WPF;assembly=SharpGL.WPF" KeyDown="Window_KeyDown">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="100*"/>
+            <ColumnDefinition Width="161*"/>
+            <ColumnDefinition Width="135*"/>
+        </Grid.ColumnDefinitions>
+
+        <!-- The OpenGL control provides a OpenGL drawing surface. -->
+         <sharpGL:OpenGLControl 
+            Name="openGLControl" OpenGLDraw="openGLControl_OpenGLDraw" 
+            OpenGLInitialized="openGLControl_OpenGLInitialized" Resized="openGLControl_Resized"
+            DrawFPS="True" RenderContextType="FBO" FrameRate="20" Margin="0,37,0,0" Grid.ColumnSpan="3"/>
+
+        <Slider HorizontalAlignment="Left" ValueChanged="Slider_ValueChanged" Margin="100,11,0,0" VerticalAlignment="Top" Height="22" Width="192" Grid.Column="1" Minimum="0" Maximum="360"/>
+        <Label Content="Rotiraj za:" HorizontalAlignment="Left" Margin="22,6,0,0" VerticalAlignment="Top" Height="32" Width="64" Grid.Column="1"/>
+
+        <Button Content="Pomeri" Height="22" VerticalAlignment="Top" Margin="20,10,108,0" Click="Button_Click"/>
+        <TextBox Name="inputText" HorizontalAlignment="Left" Height="23" Margin="108,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="72"/>
+
+
+
+        <Button Content="Skaliraj" Height="22" VerticalAlignment="Top" Margin="37,7,162,0" Click="FormulaSkalaButton" Grid.Column="2"/>
+        <TextBox Name="FormulaSkala" HorizontalAlignment="Left" Height="23" Margin="122,7,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="72" Grid.Column="2"/>
+       
+    </Grid>
+</Window>
